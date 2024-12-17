@@ -20,7 +20,7 @@ admin_keyb = [
         InlineKeyboardButton(text="🗑Vazifani o'chirish", callback_data="delete_task")
     ],
     [
-        InlineKeyboardButton(text="Bot sozlamalari", callback_data='bot_settings')
+        InlineKeyboardButton(text="⚙️Bot sozlamalari", callback_data='bot_settings')
     ],
     [
         InlineKeyboardButton(text='🌐Web admin panel', url='http://192.168.100.53:8000/admin/')

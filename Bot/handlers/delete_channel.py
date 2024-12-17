@@ -35,6 +35,7 @@ def start_remove_channel(update: Update, context: CallbackContext):
 def confirm_remove_channel(update: Update, context: CallbackContext):
     """Foydalanuvchidan tasdiq so'raydi."""
     query = update.callback_query
+    print(query.data)
     query.answer()
 
     # Callback ma'lumotini olish
@@ -54,11 +55,12 @@ def confirm_remove_channel(update: Update, context: CallbackContext):
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
-        query.edit_message_text(
+        query.message.reply_text(
             text=f"<b>{channel.channel_name}</b> ni o'chirishni tasdiqlaysizmi?",
             parse_mode="HTML",
             reply_markup=reply_markup
         )
+        query.delete_message()
         return 'REMOVE_CHANNEL'
     except MandatoryChannel.DoesNotExist:
         query.edit_message_text("Tanlangan kanal topilmadi.")
@@ -95,8 +97,8 @@ def cancel(update: Update, context: CallbackContext):
 remove_channel_conv_handler = ConversationHandler(
     entry_points=[CallbackQueryHandler(start_remove_channel, pattern='^delete_channel$')],
     states={
-        'CONFIRM_REMOVE': [CallbackQueryHandler(confirm_remove_channel, pattern='^remove_\d+$')],
-        'REMOVE_CHANNEL': [CallbackQueryHandler(remove_channel, pattern='^chaconfirm_(yes|no)$')],
+        'CONFIRM_REMOVE': [CallbackQueryHandler(confirm_remove_channel, pattern='^remove_')],
+        'REMOVE_CHANNEL': [CallbackQueryHandler(remove_channel, pattern=r'^chaconfirm_(yes|no)')],
     },
     fallbacks=[CallbackQueryHandler(cancel, pattern='^cancel$')],
 )

@@ -190,6 +190,15 @@ class BotStats(models.Model):
         self.daily_limit = new_limit
         self.save(update_fields=['daily_limit'])
 
+    def update_bonus_money(self, new_bonus_money):
+        """
+        Kunlik vazifa bajarish limitini yangilash uchun funksiya.
+        Faqat daily_limit ustuni yangilanadi.
+        """
+        self.bonus_money = new_bonus_money
+        self.save(update_fields=['bonus_money'])
+
+
 
 CHANNEL_TYPES = [
     ('channel', 'Kanal'),

@@ -5,7 +5,7 @@ from ..models import BotStats
 def stats_command(update, context):
     # Bot statistikasi modelidan ma'lumotni olish
     bot_stats = BotStats.objects.first()  # Birinchi va yagona yozuvni olish
-
+    update.callback_query.answer("Malumotlarni yuklayabman!!!")
     if bot_stats:
         # Ma'lumotni HTML formatida tayyorlash
         message = (

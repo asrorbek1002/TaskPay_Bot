@@ -21,6 +21,7 @@ from ...handlers.full_register import passport_handler
 from ...handlers.depozite import deposit_handler
 from ...handlers.change_card_number import change_card_number_handler
 from ...handlers.set_dailiy_limit import set_daily_limit_handler
+from ...handlers.set_bonus_money import set_daily_limit_handler
 from ...handlers.delete_admin import delete_admin_handler
 from ...handlers.delete_channel import remove_channel_conv_handler
 from ...handlers.Usersdepozit import check_depozite, set_user_depozite
@@ -133,8 +134,9 @@ class Command(BaseCommand):
         dp.add_handler(delete_admin_handler)
         dp.add_handler(remove_channel_conv_handler)
         dp.add_handler(CallbackQueryHandler(check_depozite, pattern=r'^(depocheck_|deponotcheck_)'))
+        dp.add_handler(set_daily_limit_handler)
         MessageHandler(Filters.regex("^🏠Asosiy menyu🏠$"), restart)
-        dp.add_handler(MessageHandler(Filters.all, restart))
+        dp.add_handler(MessageHandler(Filters.text, restart))
         print("The bot is running...")
         updater.start_polling()
         updater.idle()

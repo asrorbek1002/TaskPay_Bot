@@ -7,8 +7,9 @@ from .user_interfase import menu_keyb
 def handle_add_admin(update: Update, context: CallbackContext):
     """Admin qo'shish jarayonini boshlaydi."""
     query = update.callback_query
-    query.answer()
-    query.edit_message_text("Qaysi foydalanuvchini admin qilmoqchisiz? Iltimos, foydalanuvchi ID sini kiriting:", reply_markup=ReplyKeyboardMarkup([[KeyboardButton(text='🏠Asosiy menyu🏠')]], resize_keyboard=True))
+    query.answer("Foydalanuvchi ID ni kiriting")
+    query.delete_message()
+    query.message.reply_text("Qaysi foydalanuvchini admin qilmoqchisiz? Iltimos, foydalanuvchi ID sini kiriting:", reply_markup=ReplyKeyboardMarkup([[KeyboardButton(text='🏠Asosiy menyu🏠')]], resize_keyboard=True))
     return 'ENTER_USER_ID'
 
 def handle_user_id(update: Update, context: CallbackContext):
