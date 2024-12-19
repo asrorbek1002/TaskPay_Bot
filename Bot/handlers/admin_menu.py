@@ -23,7 +23,7 @@ admin_keyb = [
         InlineKeyboardButton(text="⚙️Bot sozlamalari", callback_data='bot_settings')
     ],
     [
-        InlineKeyboardButton(text='🌐Web admin panel', url='http://192.168.100.53:8000/admin/')
+        InlineKeyboardButton(text='🌐Web admin panel', url='https://taskpay-bot.onrender.com/admin/')
     ]
 ]
 inline_admin_key = InlineKeyboardMarkup(admin_keyb)
