@@ -27,10 +27,10 @@ SECRET_KEY = 'django-insecure-*h6rxlj$v7mptaesmos!f^cc5tg(p*vvuhv0$e+$z92@=1^*lw
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['taskpay-bot.onrender.com']
 
 
-BOT_TOKEN = '6363399370:AAG5HKRozMhLElGNBW2tPWU1gXoLGpvbDyM'
+BOT_TOKEN = '7911069226:AAHCEUvh8oOldLMTxvjFcIWoZbI5SFPLkn8'
 # Application definition
 
 INSTALLED_APPS = [
@@ -133,6 +133,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://47f2-213-230-92-194.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://taskpay-bot.onrender.com']
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
